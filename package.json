@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:server": "cd server && npm start",
+    "start:client": "cd client && npm start",
+    "start:both": "npm-run-all --parallel start:server start:client"
   },
   "keywords": [],
   "author": "",
