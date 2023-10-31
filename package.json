@@ -1,0 +1,22 @@
+{
+  "name": "stock-exchange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/common": "^10.2.7",
+    "@nestjs/core": "^10.2.7",
+    "@nestjs/platform-express": "^10.2.7",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.2.1"
+  }
+}
