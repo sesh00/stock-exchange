@@ -36,8 +36,9 @@ function StocksPage() {
                 {stocks.map(stock => (
                     <li key={stock.symbol}>
                         <Link to={`/stocks/${stock.symbol}`}>
-                            <span>{`${stock.symbol} - ${stock.name}`}</span>
+                            {stock.symbol}
                         </Link>
+                        <span>{` - ${stock.name}`}</span>
                         <input
                             type="checkbox"
                             checked={stock.trading}
