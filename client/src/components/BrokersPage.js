@@ -12,7 +12,7 @@ function BrokersPage() {
         fetch('http://localhost:3001/brokers')
             .then(response => response.json())
             .then(data => setBrokers(data.brokers))
-            .catch(error => console.error('Ошибка при получении данных о брокерах:', error));
+            .catch(error => console.error('Error fetching brokers:', error));
     }, []);
 
     const handleAddBroker = async () => {
@@ -29,17 +29,17 @@ function BrokersPage() {
             });
 
             if (!response.ok) {
-                throw new Error(`HTTP ошибка! Статус: ${response.status}`);
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Обновление списка брокеров
+            // Update the list of brokers
             updateBrokerList();
 
-            // Очистка полей ввода после успешного добавления
+            // Clear input fields after successful addition
             setNewBrokerName('');
             setNewInitialFunds('');
         } catch (error) {
-            console.error('Ошибка при добавлении нового брокера:', error);
+            console.error('Error adding new broker:', error);
         }
     };
 
@@ -54,17 +54,17 @@ function BrokersPage() {
                 );
 
                 if (!response.ok) {
-                    throw new Error(`HTTP ошибка! Статус: ${response.status}`);
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                // Обновление списка брокеров
+                // Update the list of brokers
                 updateBrokerList();
 
-                // Очистка полей ввода после успешного обновления
+                // Clear input fields after successful update
                 setUpdateFunds('');
                 setSelectedUpdateBroker(null);
             } catch (error) {
-                console.error('Ошибка при обновлении начальных средств:', error);
+                console.error('Error updating initial funds:', error);
             }
         }
     };
@@ -77,15 +77,15 @@ function BrokersPage() {
                 });
 
                 if (!response.ok) {
-                    throw new Error(`HTTP ошибка! Статус: ${response.status}`);
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                // Обновление списка брокеров
+                // Update the list of brokers
                 updateBrokerList();
 
                 setSelectedRemoveBroker(null);
             } catch (error) {
-                console.error('Ошибка при удалении брокера:', error);
+                console.error('Error removing broker:', error);
             }
         }
     };
@@ -96,31 +96,31 @@ function BrokersPage() {
             const data = await response.json();
             setBrokers(data.brokers);
         } catch (error) {
-            console.error('Ошибка при обновлении списка брокеров:', error);
+            console.error('Error updating broker list:', error);
         }
     };
 
     return (
         <div>
-            <h1>Страница брокеров</h1>
+            <h1>Brokers Page</h1>
             <div>
-                <h2>Добавить нового брокера</h2>
+                <h2>Add New Broker</h2>
                 <input
                     type="text"
-                    placeholder="Имя брокера"
+                    placeholder="Broker Name"
                     value={newBrokerName}
                     onChange={e => setNewBrokerName(e.target.value)}
                 />
                 <input
                     type="text"
-                    placeholder="Начальные средства"
+                    placeholder="Initial Funds"
                     value={newInitialFunds}
                     onChange={e => setNewInitialFunds(e.target.value)}
                 />
-                <button onClick={handleAddBroker}>Добавить брокера</button>
+                <button onClick={handleAddBroker}>Add Broker</button>
             </div>
             <div>
-                <h2>Обновить существующего брокера</h2>
+                <h2>Update Existing Broker</h2>
                 <select
                     value={selectedUpdateBroker ? selectedUpdateBroker.name : ''}
                     onChange={e => {
@@ -129,7 +129,7 @@ function BrokersPage() {
                         setUpdateFunds(selected ? selected.initialFunds : '');
                     }}
                 >
-                    <option value="">Выберите брокера</option>
+                    <option value="">Select Broker</option>
                     {brokers.map(broker => (
                         <option key={broker.name} value={broker.name}>
                             {broker.name}
@@ -138,36 +138,34 @@ function BrokersPage() {
                 </select>
                 <input
                     type="text"
-                    placeholder="Новые начальные средства"
+                    placeholder="New Initial Funds"
                     value={updateFunds}
                     onChange={e => setUpdateFunds(e.target.value)}
                 />
-                <button onClick={handleUpdateFunds}>Обновить средства</button>
+                <button onClick={handleUpdateFunds}>Update Funds</button>
             </div>
             <div>
-                <h2>Удалить брокера</h2>
+                <h2>Remove Broker</h2>
                 <select
                     value={selectedRemoveBroker ? selectedRemoveBroker.name : ''}
                     onChange={e => setSelectedRemoveBroker(brokers.find(broker => broker.name === e.target.value))}
                 >
-                    <option value="">Выберите брокера</option>
+                    <option value="">Select Broker</option>
                     {brokers.map(broker => (
                         <option key={broker.name} value={broker.name}>
                             {broker.name}
                         </option>
                     ))}
                 </select>
-                <button onClick={handleRemoveBroker}>
-                    Удалить брокера
-                </button>
+                <button onClick={handleRemoveBroker}>Remove Broker</button>
             </div>
             <div>
-                <h2>Список брокеров</h2>
+                <h2>Broker List</h2>
                 <table>
                     <thead>
                     <tr>
-                        <th>Имя</th>
-                        <th>Начальные средства</th>
+                        <th>Name</th>
+                        <th>Initial Funds</th>
                     </tr>
                     </thead>
                     <tbody>

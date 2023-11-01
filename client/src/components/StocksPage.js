@@ -44,7 +44,7 @@ function StocksPage() {
                             checked={stock.trading}
                             onChange={() => handleTradingStatusChange(stock.symbol, !stock.trading)}
                         />
-                        <label>{stock.trading ? 'Участвует в торгах' : 'Не участвует в торгах'}</label>
+                        <label>{stock.trading ? 'Participating in trading' : 'Not participating in trading'}</label>
                     </li>
                 ))}
             </ul>
