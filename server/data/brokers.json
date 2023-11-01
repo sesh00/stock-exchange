@@ -1,0 +1,32 @@
+{
+  "brokers": [
+    {
+      "name": "Interactive Brokers",
+      "initialFunds": 10000
+    },
+    {
+      "name": "Fidelity",
+      "initialFunds": 15000
+    },
+    {
+      "name": "E*TRADE",
+      "initialFunds": 12000
+    },
+    {
+      "name": "Charles Schwab",
+      "initialFunds": 13000
+    },
+    {
+      "name": "TD Ameritrade",
+      "initialFunds": 11000
+    },
+    {
+      "name": "Robinhood",
+      "initialFunds": 9000
+    },
+    {
+      "name": "Merrill Edge",
+      "initialFunds": 14000
+    }
+  ]
+}
