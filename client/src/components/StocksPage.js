@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function StocksPage() {
     const [stocks, setStocks] = useState([]);
@@ -34,7 +35,9 @@ function StocksPage() {
             <ul>
                 {stocks.map(stock => (
                     <li key={stock.symbol}>
-                        <span>{`${stock.symbol} - ${stock.name}`}</span>
+                        <Link to={`/stocks/${stock.symbol}`}>
+                            <span>{`${stock.symbol} - ${stock.name}`}</span>
+                        </Link>
                         <input
                             type="checkbox"
                             checked={stock.trading}
