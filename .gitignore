@@ -2,4 +2,4 @@
 /client/node_modules
 /server/node_modules
 /server/dist/
-/server/data/
+/server/data/candles/

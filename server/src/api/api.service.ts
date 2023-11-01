@@ -7,7 +7,7 @@ import * as fs from 'fs/promises';
 export class ApiService {
     private readonly apiKey = 'Cz2si3LVjuituTYV1wrF';
     private readonly nasdaqUrl = 'https://data.nasdaq.com/api/v3/datasets/WIKI/';
-    private readonly dataPath = 'data/';
+    private readonly dataPath = 'data/candles/';
 
     private readonly startDate = new Date('2015-01-01');
     private readonly endDate = new Date('2016-12-31');
@@ -30,13 +30,25 @@ export class ApiService {
             await this.saveDataToJson(symbol, historicalData);
             return historicalData;
         } catch (error) {
-            console.error('Error fetching data:', error.message);
-            throw new Error('Failed to fetch data from Nasdaq API');
+            console.error('Error fetching candles:', error.message);
+            throw new Error('Failed to fetch candles from Nasdaq API');
         }
     }
 
     private async saveDataToJson(symbol: string, data: any): Promise<void> {
         const filename = `${this.dataPath}${symbol}_historical_data.json`;
         await fs.writeFile(filename, JSON.stringify(data, null, 2));
+    }
+
+    async getHistoricalDataFromFile(symbol: string): Promise<any> {
+        const filename = `${this.dataPath}${symbol}_historical_data.json`;
+
+        try {
+            const fileContent = await fs.readFile(filename, 'utf-8');
+            return JSON.parse(fileContent);
+        } catch (error) {
+            console.error('Error reading historical data from file:', error);
+            throw new Error(`Failed to read historical data for symbol ${symbol}`);
+        }
     }
 }

@@ -1,0 +1,42 @@
+{
+  "AAPL": {
+    "name": "Apple, Inc.",
+    "symbol": "AAPL",
+    "trading": true
+  },
+  "SBUX": {
+    "name": "Starbucks, Inc.",
+    "symbol": "SBUX",
+    "trading": true
+  },
+  "MSFT": {
+    "name": "Microsoft, Inc.",
+    "symbol": "MSFT",
+    "trading": true
+  },
+  "CSCO": {
+    "name": "Cisco Systems, Inc.",
+    "symbol": "CSCO",
+    "trading": true
+  },
+  "QCOM": {
+    "name": "QUALCOMM Incorporated",
+    "symbol": "QCOM",
+    "trading": true
+  },
+  "AMZN": {
+    "name": "Amazon.com, Inc.",
+    "symbol": "AMZN",
+    "trading": true
+  },
+  "TSLA": {
+    "name": "Tesla, Inc.",
+    "symbol": "TSLA",
+    "trading": true
+  },
+  "AMD": {
+    "name": "Advanced Micro Devices, Inc.",
+    "symbol": "AMD",
+    "trading": true
+  }
+}

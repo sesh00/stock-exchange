@@ -1,16 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ApiService } from './api/api.service';
-
-enum StockSymbol {
-  AAPL = 'AAPL',
-  SBUX = 'SBUX',
-  MSFT = 'MSFT',
-  CSCO = 'CSCO',
-  QCOM = 'QCOM',
-  AMZN = 'AMZN',
-  TSLA = 'TSLA',
-  AMD = 'AMD',
-}
+import * as stocksData from '../data/stocks.json';
 
 @Injectable()
 export class AppService {
@@ -21,7 +11,7 @@ export class AppService {
   }
 
   async getHistoricalDataForAllStocks(): Promise<void> {
-    const stockSymbols = Object.values(StockSymbol);
+    const stockSymbols = Object.keys(stocksData);
 
     for (const symbol of stockSymbols) {
       try {
