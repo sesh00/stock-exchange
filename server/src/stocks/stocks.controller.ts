@@ -39,4 +39,26 @@ export class StocksController {
         }
     }
 
+    async processHistoricalDataForAllStocksOnDate(targetDate: string): Promise<any[]> {
+        const stockSymbols = Object.keys(stocksData);
+        const results: any[] = [];
+
+        // Extract date part only
+        const datePart = targetDate.split('T')[0];
+
+        for (const symbol of stockSymbols) {
+            const historicalDataElement = await this.apiService.getHistoricalDataElement(symbol, datePart);
+
+            if (historicalDataElement !== null) {
+                results.push({ symbol, historicalDataElement });
+            }
+        }
+
+        return results;
+    }
+
+
+
+
+
 }

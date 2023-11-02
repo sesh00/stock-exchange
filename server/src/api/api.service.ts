@@ -51,4 +51,23 @@ export class ApiService {
             throw new Error(`Failed to read historical data for symbol ${symbol}`);
         }
     }
+
+
+    async getHistoricalDataElement(symbol: string, targetDate: string): Promise<any | null> {
+        const filename = `${this.dataPath}${symbol}_historical_data.json`;
+
+        try {
+            const fileContent = await fs.readFile(filename, 'utf-8');
+            const historicalData = JSON.parse(fileContent);
+
+            const targetElement = historicalData.dataset.data.find((dataItem) => dataItem[0] === targetDate);
+
+            return targetElement || null; // Return null if no data is found
+        } catch (error) {
+            console.error('Error reading historical data from file:', error);
+            return null; // Return null if an error occurs
+        }
+    }
+
+
 }

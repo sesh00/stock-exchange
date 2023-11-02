@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "current_date": "2015-01-01",
+    "date_limits": {
+      "min_date": "2015-01-01",
+      "max_date": "2016-12-31"
+    },
+    "date_change_frequency_seconds": 0.1,
+    "trading_active": true
+  }
+}
