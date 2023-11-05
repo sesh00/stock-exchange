@@ -32,10 +32,8 @@ function BrokersPage() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Update the list of brokers
             updateBrokerList();
 
-            // Clear input fields after successful addition
             setNewBrokerName('');
             setNewInitialFunds('');
         } catch (error) {
@@ -57,10 +55,8 @@ function BrokersPage() {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                // Update the list of brokers
                 updateBrokerList();
 
-                // Clear input fields after successful update
                 setUpdateFunds('');
                 setSelectedUpdateBroker(null);
             } catch (error) {
@@ -80,7 +76,6 @@ function BrokersPage() {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                // Update the list of brokers
                 updateBrokerList();
 
                 setSelectedRemoveBroker(null);

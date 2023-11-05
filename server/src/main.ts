@@ -13,7 +13,7 @@ async function bootstrap() {
   const httpServer = app.getHttpServer();
   const io = new Server(httpServer, {
     cors: {
-      origin: "http://localhost:3000", // Add the origin of your frontend application
+      origin: "http://localhost:3000",
       methods: ["GET", "POST"]
     }
   });

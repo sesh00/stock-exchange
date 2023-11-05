@@ -13,10 +13,8 @@ function SettingsPage() {
         const newSocket = io('http://localhost:3001');
         setSocket(newSocket);
 
-        // Fetch exchange settings initially
         fetchExchangeSettings();
 
-        // Listen for the 'updateCurrentDate' event from the server
         newSocket.on('updateCurrentDate', (newDate) => {
             setExchangeSettings((prevSettings) => ({
                 ...prevSettings,
@@ -24,7 +22,6 @@ function SettingsPage() {
             }));
         });
 
-        // Listen for the 'updateStockData' event from the server
         newSocket.on('updateStockData', (newMessages) => {
             setUpdateMessages(newMessages);
         });
@@ -46,7 +43,7 @@ function SettingsPage() {
     const handleToggleTradingStatus = async () => {
         try {
             await axios.post('http://localhost:3001/exchange-settings/toggle-trading-status');
-            fetchExchangeSettings(); // Update settings after the toggle
+            fetchExchangeSettings();
         } catch (error) {
             console.error('Error toggling trading status:', error);
         }
@@ -55,7 +52,7 @@ function SettingsPage() {
     const handleUpdateFrequency = async () => {
         try {
             await axios.post('http://localhost:3001/exchange-settings/update-frequency-seconds', { newFrequency });
-            fetchExchangeSettings(); // Update settings after the frequency update
+            fetchExchangeSettings();
         } catch (error) {
             console.error('Error updating frequency:', error);
         }
@@ -68,7 +65,7 @@ function SettingsPage() {
     const handleSendDate = async () => {
         try {
             await axios.post('http://localhost:3001/exchange-settings/set-current-date', { newDate: selectedDate });
-            fetchExchangeSettings(); // Update settings after sending the date
+            fetchExchangeSettings();
         } catch (error) {
             console.error('Error sending date:', error);
         }
@@ -112,12 +109,12 @@ function SettingsPage() {
                     {updateMessages.map(({ symbol, historicalDataElement }, index) => (
                         <tr key={index}>
                             <td>{symbol}</td>
-                            <td>{historicalDataElement ? historicalDataElement[0] : ''}</td> {/* Date */}
-                            <td>{historicalDataElement ? historicalDataElement[1] : ''}</td> {/* Open */}
-                            <td>{historicalDataElement ? historicalDataElement[2] : ''}</td> {/* High */}
-                            <td>{historicalDataElement ? historicalDataElement[3] : ''}</td> {/* Low */}
-                            <td>{historicalDataElement ? historicalDataElement[4] : ''}</td> {/* Close */}
-                            <td>{historicalDataElement ? historicalDataElement[5] : ''}</td> {/* Volume */}
+                            <td>{historicalDataElement ? historicalDataElement[0] : ''}</td> {}
+                            <td>{historicalDataElement ? historicalDataElement[1] : ''}</td> {}
+                            <td>{historicalDataElement ? historicalDataElement[2] : ''}</td> {}
+                            <td>{historicalDataElement ? historicalDataElement[3] : ''}</td> {}
+                            <td>{historicalDataElement ? historicalDataElement[4] : ''}</td> {}
+                            <td>{historicalDataElement ? historicalDataElement[5] : ''}</td> {}
                         </tr>
                     ))}
                     </tbody>

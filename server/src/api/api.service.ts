@@ -62,10 +62,10 @@ export class ApiService {
 
             const targetElement = historicalData.dataset.data.find((dataItem) => dataItem[0] === targetDate);
 
-            return targetElement || null; // Return null if no data is found
+            return targetElement || null;
         } catch (error) {
             console.error('Error reading historical data from file:', error);
-            return null; // Return null if an error occurs
+            return null;
         }
     }
 

@@ -43,7 +43,6 @@ export class StocksController {
         const stockSymbols = Object.keys(stocksData);
         const results: any[] = [];
 
-        // Extract date part only
         const datePart = targetDate.split('T')[0];
 
         for (const symbol of stockSymbols) {
