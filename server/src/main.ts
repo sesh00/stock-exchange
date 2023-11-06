@@ -1,6 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as cors from 'cors';
 import { Server } from 'socket.io';
 import { StocksController } from './stocks/stocks.controller';
 import { ExchangeSettingsService } from './exchange-settings/exchange-settings.service';
