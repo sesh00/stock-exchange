@@ -9,6 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const stocksController = app.get(StocksController);
+  await stocksController.getHistoricalDataForAllStocks();
   app.enableCors();
   const httpServer = app.getHttpServer();
   const io = new Server(httpServer, {
@@ -17,6 +18,7 @@ async function bootstrap() {
       methods: ["GET", "POST"]
     }
   });
+
 
   const exchangeSettingsService = app.get(ExchangeSettingsService);
   exchangeSettingsService.setServer(io);
