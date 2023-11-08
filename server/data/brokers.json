@@ -2,31 +2,59 @@
   "brokers": [
     {
       "name": "Interactive Brokers",
-      "initialFunds": 10000
+      "initialFunds": 10000,
+      "stocks": [
+        { "symbol": "AAPL", "quantity": 5, "purchasePrice": 150 },
+        { "symbol": "SBUX", "quantity": 10, "purchasePrice": 50 }
+      ]
     },
     {
       "name": "Fidelity",
-      "initialFunds": 15000
+      "initialFunds": 15000,
+      "stocks": [
+        { "symbol": "MSFT", "quantity": 8, "purchasePrice": 200 },
+        { "symbol": "CSCO", "quantity": 6, "purchasePrice": 100 }
+      ]
     },
     {
       "name": "E*TRADE",
-      "initialFunds": 12000
+      "initialFunds": 12000,
+      "stocks": [
+        { "symbol": "QCOM", "quantity": 7, "purchasePrice": 120 },
+        { "symbol": "AMZN", "quantity": 4, "purchasePrice": 180 }
+      ]
     },
     {
       "name": "Charles Schwab",
-      "initialFunds": 13000
+      "initialFunds": 13000,
+      "stocks": [
+        { "symbol": "TSLA", "quantity": 3, "purchasePrice": 250 },
+        { "symbol": "AMD", "quantity": 12, "purchasePrice": 90 }
+      ]
     },
     {
       "name": "TD Ameritrade",
-      "initialFunds": 11000
+      "initialFunds": 11000,
+      "stocks": [
+        { "symbol": "AAPL", "quantity": 6, "purchasePrice": 160 },
+        { "symbol": "SBUX", "quantity": 9, "purchasePrice": 55 }
+      ]
     },
     {
       "name": "Robinhood",
-      "initialFunds": 9000
+      "initialFunds": 9000,
+      "stocks": [
+        { "symbol": "MSFT", "quantity": 10, "purchasePrice": 190 },
+        { "symbol": "CSCO", "quantity": 5, "purchasePrice": 110 }
+      ]
     },
     {
       "name": "Merrill Edge",
-      "initialFunds": 14000
+      "initialFunds": 14000,
+      "stocks": [
+        { "symbol": "QCOM", "quantity": 8, "purchasePrice": 130 },
+        { "symbol": "AMZN", "quantity": 3, "purchasePrice": 200 }
+      ]
     }
   ]
 }

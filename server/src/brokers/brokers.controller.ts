@@ -6,8 +6,12 @@ export class BrokersController {
     constructor(private readonly brokersService: BrokersService) {}
 
     @Get()
-    getBrokers(): { brokers: { name: string; initialFunds: number }[] } {
+    getBrokers(): { brokers: { name: string; initialFunds: number; stocks: any[] }[] } {
         return this.brokersService.getBrokers();
+    }
+    @Get(':name')
+    getBrokerByName(@Param('name') name: string): { broker: { name: string; initialFunds: number; stocks: any[] } } {
+        return this.brokersService.getBrokerByName(name);
     }
 
     @Put(':name/update-funds/:newInitialFunds')

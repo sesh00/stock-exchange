@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:server": "cd server && npm start"
+    "start:server": "cd server && npm start",
+    "start:client": "cd client && npm start",
+    "start:both": "npm-run-all --parallel start:client start:server"
   },
   "keywords": [],
   "author": "",
