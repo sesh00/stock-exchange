@@ -29,4 +29,24 @@ export class BrokersController {
     removeBroker(@Param('name') name: string): void {
         this.brokersService.removeBroker(name);
     }
+
+    @Post(':name/buy-stock/:symbol/:quantity/:price')
+    buyStock(
+        @Param('name') name: string,
+        @Param('symbol') symbol: string,
+        @Param('quantity') quantity: number,
+        @Param('price') price: number,
+    ): void {
+        this.brokersService.buyStock(name, symbol, quantity, price);
+    }
+
+    @Post(':name/sell-stock/:symbol/:quantity/:price')
+    sellStock(
+        @Param('name') name: string,
+        @Param('symbol') symbol: string,
+        @Param('quantity') quantity: number,
+        @Param('price') price: number,
+    ): void {
+        this.brokersService.sellStock(name, symbol, quantity, price);
+    }
 }
