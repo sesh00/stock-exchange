@@ -2,17 +2,17 @@
   "AAPL": {
     "name": "Apple, Inc.",
     "symbol": "AAPL",
-    "trading": true
+    "trading": false
   },
   "SBUX": {
     "name": "Starbucks, Inc.",
     "symbol": "SBUX",
-    "trading": true
+    "trading": false
   },
   "MSFT": {
     "name": "Microsoft, Inc.",
     "symbol": "MSFT",
-    "trading": true
+    "trading": false
   },
   "CSCO": {
     "name": "Cisco Systems, Inc.",
