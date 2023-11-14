@@ -6,6 +6,7 @@ import { StocksController } from './stocks/stocks.controller';
 import { ExchangeSettingsService } from './exchange-settings/exchange-settings.service';
 
 async function bootstrap() {
+
   const app = await NestFactory.create(AppModule);
 
   const stocksController = app.get(StocksController);
